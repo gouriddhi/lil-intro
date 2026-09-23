@@ -200,11 +200,63 @@
   animation: wiggle 2.5s ease-in-out infinite;
 }
 
+@keyframes bubble-up {
+  0% { opacity: 0.55; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-70px) scale(0.35); }
+}
+
+@keyframes shell-burst {
+  0% { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0.3) rotate(var(--tr)); }
+}
+
+@keyframes scoot {
+  0% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(12px) rotate(-7deg); }
+  55% { transform: translateX(-6px) rotate(6deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+
+@keyframes pond-wave {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-24px); }
+}
+
+@keyframes ticker-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-bubble-up {
+  animation: bubble-up 1.3s ease-out forwards;
+}
+
+.animate-shell-burst {
+  animation: shell-burst 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-scoot {
+  animation: scoot 0.6s ease-in-out;
+}
+
+.animate-pond-wave {
+  animation: pond-wave 8s ease-in-out infinite;
+}
+
+.animate-ticker-in {
+  animation: ticker-in 0.5s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float-slow,
   .animate-swim,
   .animate-rise-in,
-  .animate-wiggle {
+  .animate-wiggle,
+  .animate-bubble-up,
+  .animate-shell-burst,
+  .animate-scoot,
+  .animate-pond-wave,
+  .animate-ticker-in {
     animation: none;
   }
 }
