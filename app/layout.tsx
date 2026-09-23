@@ -1,6 +1,19 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Fredoka, Nunito } from 'next/font/google'
 import './globals.css'
+
+const fredoka = Fredoka({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-fredoka',
+})
+
+const nunito = Nunito({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-nunito',
+})
 
 export const metadata: Metadata = {
   title: 'Gouriddhi Pun',
@@ -39,8 +52,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" className={`${fredoka.variable} ${nunito.variable}`}>
+      <body className="font-[family-name:var(--font-nunito)] antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
